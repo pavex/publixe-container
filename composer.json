@@ -1,0 +1,17 @@
+{
+    "name": "publixe/container",
+    "description": "Publixe/Simple system container",
+    "version": "1.0.0",
+    "type": "library",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "pavex",
+            "email": "pavex@ines.cz"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "classmap": ["src/"]
+    }
+}
