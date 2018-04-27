@@ -231,20 +231,12 @@
  * @throw \BadMethodCallException
  */
 		public function __call($method, $params)
-		{
-			if (preg_match('/^get(.*)$/', $method, $match)) {
-				$name = lcfirst($match[1]);
-				return $this -> get($name);
+		{	
+			if (preg_match('/^(get|create|has)(.[a-zA-Z0-9]+)$/', $method, $match)) {
+				list(, $callable, $name) = $match;
+				return $this -> {$callable}(lcfirst($name));				
 			}
-			elseif (preg_match('/^create(.*)$/', $method, $match)) {
-				$name = lcfirst($match[1]);
-				return $this -> create($name);
-			}
-			elseif (preg_match('/^has(.*)$/', $method, $match)) {
-				$name = lcfirst($match[1]);
-				return $this -> has($name, isset($params[0]) ? $params[0] : NULL);
-			}
-			throw new BadMethodCallException(sprintf('Method %s access denied.', $method));
+			throw new BadMethodCallException(sprintf('Can not process %s.', $method));
 		}
 
 
