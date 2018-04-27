@@ -3,7 +3,7 @@
     "description": "Publixe/Simple system container",
     "version": "1.0.0",
     "type": "library",
-    "license": "GPL-2.0",
+    "license": "GPL-3.0",
     "authors": [
         {
             "name": "pavex",
