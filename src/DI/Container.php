@@ -233,8 +233,8 @@
 		public function __call($method, $params)
 		{	
 			if (preg_match('/^(get|create|has)(.[a-zA-Z0-9]+)$/', $method, $match)) {
-				list(, $callable, $name) = $match;
-				return $this -> {$callable}(lcfirst($name));				
+				list(, $action, $name) = $match;
+				return $this -> {$action}(lcfirst($name));				
 			}
 			throw new BadMethodCallException(sprintf('Can not process %s.', $method));
 		}
