@@ -2,7 +2,7 @@
 
 	namespace Publixe;
 	use Publixe;
-	use \LogicException as LogicException;
+	use \LogicException;
 
 
 /**
