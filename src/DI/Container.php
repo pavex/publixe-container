@@ -4,7 +4,7 @@
 	use Publixe;
 	use \ReflectionClass;
 	use \LogicException;
-	use \BadMethodCallException ;
+	use \BadMethodCallException;
 
 
 /**
@@ -32,7 +32,7 @@
  * @param array=
  * @throw LogicException
  */
-		public function set($class, $params = [], $setters = [])
+		public function set($class, array $params = [], array $setters = [])
 		{
 			$this -> setName(NULL, $class, $params, $setters);
 		}
@@ -49,9 +49,9 @@
  * @param array=
  * @throw LogicException
  */
-		public function setName($name, $class, $params = [], $setters = [])
+		public function setName($name, $class, array $params = [], array $setters = [])
 		{
-			$name = $name !== NULL ? $name : $class;
+			$name = (string) ($name !== NULL ? $name : $class);
 			if (in_array($name, $this -> config)) {
 				throw new LogicException(sprintf('Instance %s is already set.', $name));
 			}
