@@ -117,11 +117,11 @@
 				throw new LogicException(sprintf('Instance %s not set.', $name));
 			}
 			list($name, $class, $params, $setters) = $this -> config[$name];
-			$instance = new $class(...$params);
-//
+// Setup args and create instance
 			$this -> putReferences($params);
-			$this -> putReferences($setters);
+			$instance = new $class(...$params);
 // Setup setters if available
+			$this -> putReferences($setters);
 			$vars = array_keys(get_object_vars($instance));
 			foreach ($setters as $name => $value) {
 				if (in_array($name, $vars)) {
