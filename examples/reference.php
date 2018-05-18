@@ -26,6 +26,17 @@ class SomeClass
 	}
 }
 
+class AnotherClass {
+
+	private $obj;
+
+	public function __construct($obj)
+	{
+		$this -> obj = $obj;
+	}
+}
+
+
 //
 use Publixe\Container;
 
@@ -39,8 +50,11 @@ Container::setName('someclass', SomeClass::class, ['A'], [
 	'arg3' => SomeClass::class
 ]);
 
+Container::set(AnotherClass::class, [SomeClass::class]);
 
 //
 $someinstance = Container::getContainer() -> getSomeclass();
-
 var_dump($someinstance);
+
+$anotherinstance = Container::getContainer() -> get(AnotherClass::class);
+var_dump($anotherinstance);
