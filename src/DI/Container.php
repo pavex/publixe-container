@@ -247,9 +247,9 @@
  * Create callable getter.
  * @return Object
  */
-		public function __invoke($name)
+		public function getFactoryCallback()
 		{
-			return $this -> get($name);
+			return [$this, 'get'];
 		}
 
 

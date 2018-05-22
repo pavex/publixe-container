@@ -16,13 +16,14 @@ $container -> set(Test1::class);
 
 var_dump(is_callable($container));
 
-$instance = $container(Test1::class);
+$instance = $container -> get(Test1::class);
 
 var_dump($instance);
 
-$c = $container;
+// As callback
+$callback = $container -> getFactoryCallback();
 
-$instance = $c(Test1::class);
+$instance = $callback(Test1::class);
 
 var_dump($instance);
 
