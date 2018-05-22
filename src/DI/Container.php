@@ -234,10 +234,26 @@
 		{	
 			if (preg_match('/^(get|create|has)(.[a-zA-Z0-9]+)$/', $method, $match)) {
 				list(, $action, $name) = $match;
-				return $this -> {$action}(lcfirst($name));				
+				return $this -> {$action}(lcfirst($name));
 			}
 			throw new BadMethodCallException(sprintf('Can not process %s.', $method));
 		}
+
+
+
+
+
+/**
+ * Create callable getter.
+ * @return Object
+ */
+		public function __invoke($name)
+		{
+			return $this -> get($name);
+		}
+
+
+
 
 
 	}
