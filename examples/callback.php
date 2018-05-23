@@ -20,10 +20,17 @@ $instance = $container -> get(Test1::class);
 
 var_dump($instance);
 
+function test(callable $c) {
+	echo "ok\n";
+};
+
+
 // As callback
-$callback = $container -> getFactoryCallback();
+$callback = $container;
 
 $instance = $callback(Test1::class);
+
+test($callback);
 
 var_dump($instance);
 

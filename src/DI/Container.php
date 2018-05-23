@@ -244,12 +244,12 @@
 
 
 /**
- * Create callable getter.
+ * Create callable getter as default call.
  * @return Object
  */
-		public function getFactoryCallback()
-		{
-			return [$this, 'get'];
+		public function __invoke($name)
+		{	
+			return $this -> get($name);
 		}
 
 
