@@ -245,7 +245,7 @@
 
 /**
  * Create callable getter as default call.
- * @return Object
+ * @return callable
  */
 		public function __invoke($name)
 		{	
